@@ -1,0 +1,21 @@
+{
+  "author": "Marak Squires <marak.squires@gmail.com>",
+  "name": "hook.io-request",
+  "description": "a simple hook.io hook for making HTTP requests",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Marak/hook.io-request.git"
+  },
+  "bin": {
+     "hookio-request": "./bin/request"
+   },
+  "main": "./lib/request",
+  "engines": {
+    "node": ">= v0.4.7"
+  },
+  "dependencies": {
+    "hook.io" : "0.4.x"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+var RequestHook = require('../lib/request').RequestHook;
+var myhook = new RequestHook( { name: "request-hook" } );
+myhook.start();

@@ -1,5 +1,33 @@
 #!/usr/bin/env node
 
 var RequestHook = require('../lib/request').RequestHook;
-var myhook = new RequestHook( { name: "request-hook" } );
+var myhook = new RequestHook({ 
+  name: "request-hook",
+  debug: true
+});
+
+//
+//  This will fire after our response has gone out
+//
+myhook.on('*::gotResponse', function(event, data){
+  myhook.log(this.name, event, data);
+});
+
+
+myhook.on('hook::ready', function(){
+
+  //
+  // requestOptions is a 1:1 mapping to https://github.com/mikeal/request API 
+  //
+  var requestOptions = {
+    "url": "http://google.com"
+  };
+
+  //
+  //  Perform an HTTP request
+  //
+  myhook.emit('*::sendRequest', requestOptions);
+  
+});
+
 myhook.start();

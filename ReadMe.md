@@ -2,11 +2,21 @@
 
 *a simple Hook for making outgoing http requests*
 
-## Hook.io Events Names
+## Installation
+
+     npm install hook.io-repl -g
+
+## Usage
+
+     hookio-repl
+
+## Hook Events Names
 
 **sendRequest** *sends HTTP request*:
 
 **gotResponse** *event emitted when request comes back*:
+
+## Example
 
 ```javascript
 
@@ -17,9 +27,9 @@ var requestOptions = {
   "url": "http://google.com"
 };
 
-myHook.emit('*::sendRequest', requestOptions);
+myHook.emit('sendRequest', requestOptions);
 
-myHook.on('*::gotResponse', function(source, event, data){
+myHook.on('*::gotResponse', function(data){
   
   console.log(data);
   

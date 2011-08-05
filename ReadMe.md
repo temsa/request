@@ -37,6 +37,8 @@ myHook.on('*::gotResponse', function(data){
     {
        err:         err,
        statusCode:  response.statusCode,
+       headers:     response.headers,
+       body:        response.body
        hook:     options,
        requestTime: requestTime
      }
@@ -44,3 +46,6 @@ myHook.on('*::gotResponse', function(data){
   
 })
 ```
+
+Note that the "hook" key contains original parameterts passed to request,
+making it ideal to put some other values for handling the request context (such as linking the request to an id, for example)
